@@ -41,7 +41,8 @@
       <ul>
         <li>
           <code>path</code> is the URL segment. This recipe is therefore searchable at
-          <code>/ENCPOS/search</code>. The match is <b>exact</b>: a visitor asking for a segment
+          <a href="https://dots.chartes.psl.eu/cookbook/ENCPOS/search" target="_blank"><code>/ENCPOS/search</code></a>.
+          The match is <b>exact</b>: a visitor asking for a segment
           that no entry declares is redirected to the home page rather than shown an error.
         </li>
         <li>
@@ -204,6 +205,14 @@
       <p>
         The indexing side documents the same settings from the API's point of view, in
         <a href="https://dots-suite.github.io/dots-cli-es/custom-settings/" target="_blank">Using custom settings</a>.
+      </p>
+
+      <h2>The result</h2>
+      <p>
+        All of it comes together on
+        <a href="https://dots.chartes.psl.eu/cookbook/ENCPOS/search" target="_blank">the search page of this recipe</a>:
+        open the filters to see the two facets and the two date ranges kept here, under the labels
+        and in the order set above, and the results table with its four columns.
       </p>
     </div>
   </article>

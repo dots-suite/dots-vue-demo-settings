@@ -230,6 +230,16 @@
         they are inherited and may be overridden collection by collection. The “Overview” section
         explains that cascade.
       </p>
+
+      <h2>The result</h2>
+      <p>
+        The settings above produce the metadata panel of every document of this recipe — see for
+        instance
+        <a href="https://dots.chartes.psl.eu/cookbook/ENCPOS/document/ENCPOS_1972_18" target="_blank">ENCPOS_1972_18</a>,
+        where the <b>document breadcrumb at the top of the page</b> opens the panel. The order of
+        the rows, their French labels and the absence of everything else are read straight from
+        <code>encpos.conf.json</code>.
+      </p>
     </div>
   </article>
 
