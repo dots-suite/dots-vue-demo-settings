@@ -16,7 +16,31 @@
     "listSection": {
       "displayMode": "mixed",
       "cardCollectionPerPage": 5,
-      "displaySort": ["ENCPOS_1849", "ENCPOS_1971", "ENCPOS_1972", "normandy", "diplomatics"]
+      "displaySort": ["ENCPOS_1849", "ENCPOS_1971", "ENCPOS_1972", "normandy", "diplomatics"],
+      "columns": [
+        {
+          "key": "title",
+          "label": "Titre",
+          "width": "2fr"
+        },
+        {
+          "key": "dublinCore.creator",
+          "label": "Auteur",
+          "width": "1fr"
+        },
+        {
+          "key": "dublinCore.created",
+          "label": "Date",
+          "type": "date",
+          "width": "125px"
+        },
+        {
+          "key": "dublinCore.coverage",
+          "label": "Sujet",
+          "type": "date",
+          "width": "125px"
+        }
+      ]
     }
   },
   "footerSettings": {
@@ -29,18 +53,26 @@
     "displayLeftToc": true
   },
   "aboutPageSettings": [
-    { "tabName": "Segmentation", "compName": "about1" },
-    { "tabName": "What we learn", "compName": "about2" },
-    { "tabName": "Overview", "compName": "about3" },
+    { "tabName": "Metadata settings", "compName": "about1" },
+    { "tabName": "Segmentation", "compName": "about2" },
+    { "tabName": "Format and styling", "compName": "about3" },
+    { "tabName": "Enabling a search page", "compName": "about4" },
+    { "tabName": "Overview", "compName": "about5" },
     null
   ],
   "collectionCustomCss": false,
-   "metadataDisplayOrder": [
+  "namespaces": {
+    "dts":    "https://dtsapi.org/v1.0#",
+    "dct":    "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "dots":   "https://github.com/dots-suite/dots/"
+  },
+  "metadataDisplayOrder": [
     "dct:title",
     "schema:author",
     "dct:created",
     "dct:language",
-     "dct:coverage",
+    "dct:coverage",
     "schema:isBasedOn",
     "schema:publisher",
     "dct:issued",
@@ -48,19 +80,103 @@
     "schema:license",
     "dct:rights"
   ],
-   "metadataRename": {
-     "dct:title": "Titre",
-     "schema:author": "Auteur",
-     "dct:created": "Date du document",
-     "dct:language": "Langue",
-     "dct:coverage": "Période du sujet",
-     "schema:isBasedOn": "Source",
-     "schema:publisher": "Publié par",
-     "dct:issued": "Date de publication",
-     "schema:license": "Licence",
-     "dct:rights": "Mentions de droits"
+  "metadataRename": {
+    "dct:title": "Titre",
+    "schema:author": "Auteur",
+    "dct:created": "Date du document",
+    "dct:language": "Langue",
+    "dct:coverage": "Période du sujet",
+    "schema:isBasedOn": "Source",
+    "schema:publisher": "Publié par",
+    "dct:issued": "Date de publication",
+    "schema:license": "Licence",
+    "dct:rights": "Mentions de droits"
   },
   "excludeMetadata": {
     "onlyDeclared": true
+  },
+  "customRoutes": [
+    {
+      "name": "Search",
+      "path": "search",
+      "compName": "SearchPage"
+    }
+  ],
+  "searchConfig": {
+    "facets": [
+      {
+        "key": "collections",
+        "label": "Collections",
+        "enabled": true
+      },
+      {
+        "key": "dublinCore.creator",
+        "label": "Auteurs",
+        "enabled": true,
+        "order": 3
+      },
+      {
+        "key": "dublinCore.contributor",
+        "enabled": false
+      },
+      {
+        "key": "dublinCore.publisher",
+        "enabled": false
+      },
+      {
+        "key": "dublinCore.language",
+        "enabled": false
+      },
+      {
+        "key": "extensions.author",
+        "enabled": false
+      },
+      {
+        "key": "extensions.editor",
+        "enabled": false
+      },
+      {
+        "key": "extensions.publisher",
+        "enabled": false
+      },
+      {
+        "key": "extensions.inLanguage",
+        "enabled": false
+      },
+      {
+        "key": "extensions.funder",
+        "enabled": false
+      }
+    ],
+    "temporalFacets": [
+      {
+        "key": "dublinCore.created",
+        "label": "Date du document",
+        "enabled": true,
+        "order": 1
+      },
+      {
+        "key": "dublinCore.coverage",
+        "label": "Sujet (période)",
+        "enabled": true,
+        "order": 2
+      },
+      {
+        "key": "dublinCore.issued",
+        "enabled": false
+      },
+      {
+        "key": "extensions.dateCreated",
+        "enabled": false
+      },
+      {
+        "key": "extensions.datePublished",
+        "enabled": false
+      },
+      {
+        "key": "extensions.temporalCoverage",
+        "enabled": false
+      }
+    ]
   }
 }

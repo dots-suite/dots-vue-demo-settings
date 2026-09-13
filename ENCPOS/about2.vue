@@ -1,58 +1,55 @@
 <template>
   <article class="about">
-    <div class="title app-width-padding">Features covered in this recipe</div>
+    <div class="title app-width-padding">Collection, document, fragment: editorial segmentation</div>
     <div class="about-content app-width-padding">
-      <h2>Data format selection</h2>
+      <h2>Thesis abstract as a document</h2>
       <p>
-        By default, when displaying a document or a fragment, the response format of the DTS Document endpoint is XML/TEI.
-        DoTS, thanks to the <code>mediaType</code> request parameter, can deliver a document or a fragment in HTML format.
+        In this case, the publisher wishes to emphasize the semantic structuring of the corpus: the annual volume is not considered as a document (a volume), but as the annual collection of published positions. Consequently, each position becomes a document in this annual collection.
       </p>
       <p>
-        For each collection, the JSON configuration file allows you to define the format (XML/TEI or HTML) using the <code>mediaTypeEndpoint</code> parameter.
+        The hierarchy is as follows:
       </p>
+      <pre class="desktop">
+encpos                    collection (level 1)
+  > year                  collection (level 2)
+    > abstract            document
+      > section           fragment (level 1, i.e. part)
+        > sub-section     fragment (level 2, i.e. chapter)
+      </pre>
+      <pre class="responsive">
+encpos            collection (level 1)
+> year            collection (level 2)
+ > abstract       document
+  > section       fragment
+                  (level 1 - part)
+   > sub-section  fragment
+                  (level 2 - chapter)
+      </pre>
       <p>
-        The default XML/TEI format is defined for this recipe in the <code>encpos.conf.json</code> configuration file: <code>"mediaTypeEndpoint": "tei"</code>.
+        The various sections and subsections (part, chapter, etc.) of each abstract are declared in the endpoint Navigation response, for example:
+        <a href="https://dots.chartes.psl.eu/demo/api/dts/navigation?resource=ENCPOS_1972_18&down=2" target="_blank">https://dots.chartes.psl.eu/demo/api/dts/navigation?resource=ENCPOS_1972_18&down=2</a>
       </p>
+      <h2>Define editorial segmentation for display</h2>
       <p>
-        But this configuration is redefined specifically for the 1972 sub-collection, in its configuration file <code>encpos_1972.conf.json</code>: <code>"mediaTypeEndpoint": "html"</code>.
+        Would you like to consult the all abstract on a single page? Or do you want to browse by part or sub-part (chapter)?
+        You can define this editorial segmentation for each collection in its JSON configuration file, using the <code>editByLevel</code> parameter.
       </p>
-      <h2>Styling</h2>
-      <!--<h3>REVOIR LE STYLE</h3>-->
-      <p>
-        <b>For a response in XML/TEI format</b>.<br>
-        By default, the <a href="https://www.tei-c.org/release/xml/tei/stylesheet/tei.css" target="_blank">CSS stylesheet defined by the TEI Consortium</a> are applied.
-        But for each collection, it's possible to call other CSS stylesheets from its JSON configuration file, thanks to the <code>collectionCustomCss</code> parameter.
-      </p>
-      <p>
-        Examples:
-      </p>
+      <p>Different cases are illustrated in this recipe:</p>
       <ul>
-        <li>
-          TEI Consortium CSS stylesheets: ENCPOS_1849_08<br>
-          see <code>encpos.conf.json</code>: <code>"collectionCustomCss": false</code>
-        </li>
-        <li>
-          Custum CSS stylesheets: ENCPOS_1971_12<br>
-          see <code>encpos_1971.conf.json</code>: <code>"collectionCustomCss": "dots_cookbook"</code>
-        </li>
+        <li>1849 and 1971: document level (<code>"editByLevel": 0</code>, default setting for the recipe defined in <code>encpos.conf.json</code>)</li>
+        <lI>1972 : part level (<code>"editByLevel": 0</code>, custom setting for that collection defined in its JSON configuration file <code>encpos_1972.conf.json</code><code></code> )</lI>
       </ul>
       <p>
-        The <code>collectionCustomCss</code> parameter value points to the collection containing the CSS folder.<br>
-        Here, in <code>encpos_1971.conf.json</code>, the value <code>dots_cookbook</code> points to the stylesheets of <code>dots_cookbook/assets/css</code>.
+        Rather than defining the segmentation level numerically, it's possible to specify it semantically, according to <code>citeType</code> value (DTS Navigation Endpoint), using the <code>editByCiteType</code> parameter.<br>
+        This feature is illustrated in the Theater recipe.
       </p>
-      <p>To customize TEI elements, edit the "PART 3" of the stylesheet <i>collectionCustomCss.css</i>
+      <h2>Table of contents depth</h2>
+      <p>
+        Independently of this editorial segmentation, it is possible to define the depth of a document's table of contents (TOC) using the <code>tableOfContentDepth</code> query parameter.<br>
+        For example, if 1972 abstracts are segmented by part (level 1), their TOC are detailed at chapter level (level 2).
       </p>
       <p>
-        To fully understand overload logic, read the “Overview” section.
-      </p>
-      <!--<h3>REVOIR LE STYLE</h3>-->
-      <p>
-        <b>For a response in HTML format</b>.<br>
-        To customize HTML elements, the process is similar:
-        <ul>
-          <li>use the <code>collectionCustomCss</code> parameter to provide a stylesheet in the <code>collection/assets/css</code>,</li>
-          <li>edit the "PART 2" of the provided stylesheet.</li>
-        </ul>
+        DoTS-Vue automatically provides a link for each TOC item according to the scenario: fragment link if the level corresponds to the editorial segmentation, anchor if the level is finer than this segmentation.
       </p>
     </div>
   </article>
@@ -67,4 +64,18 @@ export default {
 }
 </script>
 <style scoped>
+.responsive {
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  .desktop {
+    display: none;
+  }
+  .responsive {
+    display: block;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+}
 </style>
