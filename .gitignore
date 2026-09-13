@@ -28,3 +28,10 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+
+# MkDocs generated site
+mkdocs/site/
+
+# Python virtualenv (documentation toolchain)
+venv*/
+.venv/

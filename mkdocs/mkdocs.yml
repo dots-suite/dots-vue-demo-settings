@@ -1,0 +1,84 @@
+site_name: DoTS-Vue settings
+site_description: How to build a settings repository for the dots-vue front-end — directory layout, configuration files, every setting and the cascade that merges them.
+site_url: https://dots-suite.github.io/dots-vue-demo-settings/
+repo_url: https://github.com/dots-suite/dots-vue-demo-settings
+repo_name: dots-suite/dots-vue-demo-settings
+edit_uri: edit/dev/mkdocs/docs/
+
+docs_dir: docs
+site_dir: site
+
+use_directory_urls: true
+
+theme:
+  name: material
+  language: en
+  logo: assets/dots-logo-retro.drawio.png
+  favicon: assets/dots-light.png
+  custom_dir: overrides
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - content.code.copy
+    - content.code.annotate
+    - search.highlight
+    - search.suggest
+  palette:
+  - media: "(prefers-color-scheme: light)"
+    scheme: default
+    primary: teal
+    accent: teal
+    toggle:
+      icon: material/weather-night
+      name: Switch to dark mode
+
+  - media: "(prefers-color-scheme: dark)"
+    scheme: slate
+    primary: teal
+    accent: teal
+    toggle:
+      icon: material/weather-sunny
+      name: Switch to light mode
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+
+nav:
+  - Home: index.md
+  - Creating a settings repository: creating.md
+  - Repository layout: layout.md
+  - Configuration files: configuration.md
+  - The settings cascade: cascade.md
+  - Settings reference: reference.md
+  - Collection pages: pages.md
+  - Styling and assets: styling.md
+  - Search page settings: search.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/dots-suite/dots-vue-demo-settings
+
+extra_css:
+  - stylesheets/extra.css
+
+copyright: Copyright &copy; 2026 Jean-Victor Boby — <a href="https://github.com/dots-suite/dots-vue-demo-settings/blob/dev/LICENSE.md">MIT License</a>
