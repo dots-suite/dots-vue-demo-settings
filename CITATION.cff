@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata from this file."
+title: "dots-vue-demo-settings"
+abstract: >
+  Reference configuration repository for the dots-vue front-end, used by the DoTS
+  demonstration site. It gathers the per-collection settings files that drive the
+  appearance, routing, custom pages, search behaviour and facet selection of a
+  dots-vue instance, and serves as a worked example for projects building their own
+  settings repository.
+type: software
+authors:
+  - family-names: Boby
+    given-names: Jean-Victor
+    affiliation: "École nationale des chartes – PSL"
+  - family-names: Jolivet
+    given-names: Vincent
+    affiliation: "École nationale des chartes – PSL"
+  - family-names: Pons
+    given-names: Philippe
+    affiliation: "École nationale des chartes – PSL"
+repository-code: "https://github.com/dots-suite/dots-vue-demo-settings"
+url: "https://dots.chartes.psl.eu/vue-demo/"
+license: MIT
+keywords:
+  - DTS
+  - Distributed Text Services
+  - DoTS
+  - dots-vue
+  - configuration
+  - TEI
+  - digital humanities
+  - cultural heritage
+preferred-citation:
+  type: software
+  title: "dots-vue-demo-settings"
+  authors:
+    - family-names: Boby
+      given-names: Jean-Victor
+      affiliation: "École nationale des chartes – PSL"
+    - family-names: Jolivet
+      given-names: Vincent
+      affiliation: "École nationale des chartes – PSL"
+    - family-names: Pons
+      given-names: Philippe
+      affiliation: "École nationale des chartes – PSL"
+  repository-code: "https://github.com/dots-suite/dots-vue-demo-settings"
+  url: "https://dots.chartes.psl.eu/vue-demo/"
+  license: MIT
