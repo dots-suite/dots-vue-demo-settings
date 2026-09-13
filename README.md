@@ -11,7 +11,8 @@ Configuration settings repo for [dots-vue](https://github.com/dots-suite/dots-vu
 
 This repository doubles as the reference example for building a dots-vue settings repository. The
 documentation site (MkDocs Material) lives in [`mkdocs/`](./mkdocs/) and is published to GitHub Pages
-by [`.github/workflows/docs.yml`](./.github/workflows/docs.yml) on every push to `dev`.
+by [`.github/workflows/docs.yml`](./.github/workflows/docs.yml) on every push to `dev`. Pushes to
+`master` build the site as a check, without publishing it.
 
 📖 **https://dots-suite.github.io/dots-vue-demo-settings/**
 
