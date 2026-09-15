@@ -1,5 +1,11 @@
 {
   "collectionId": "theater",
+  "mediaTypeEndpoint": "tei",
+  "renderer": {
+    "name": "teic-oxygen",
+    "css": ["https://dots.chartes.psl.eu/demo/static/renderers/teic-oxygen/tei.css"],
+    "pageSelectors": ["html", ":root"]
+  },
   "homePageSettings": {
     "appNavBar": {
       "collectionShortTitle": "Theater"

@@ -1,6 +1,15 @@
 {
   "collectionId": "ENCPOS",
-  "mediaTypeEndpoint": "tei",
+  "mediaTypeEndpoint": "html",
+  "renderer": {
+    "name": "TEI-Boilerplate",
+    "css": ["https://dots.chartes.psl.eu/demo/static/renderers/TEI-Boilerplate/src/css/teibp.css"],
+    "documentContainer": "#tei_wrapper",
+    "pageSelectors": ["html", "body", ":root"],
+    "facsimiles": [
+      { "selector": ".-teibp-pbFacs", "image": { "selector": "img", "attribute": "src" } }
+    ]
+  },
   "homePageSettings": {
     "appNavBar": {
       "collectionShortTitle": "Thesis abstract, case 1"
