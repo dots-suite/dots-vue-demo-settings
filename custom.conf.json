@@ -13,7 +13,8 @@
         }
       },
       "pageHeader": {
-        "aboutButtonText": "About"
+        "aboutButtonText": "About",
+        "aboutOpenState": false
       },
       "descriptionSection": {
       },

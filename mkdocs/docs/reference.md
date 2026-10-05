@@ -40,6 +40,7 @@ All under `homePageSettings.pageHeader`.
 |---|---|---|---|
 | `collectionAltTitle` | string | `"Titre"` | Title displayed instead of the collection's DTS title. Empty falls back to the DTS title. |
 | `aboutButtonText` | string | `"about"` | Label of the About button. |
+| `aboutOpenState` | boolean | `false` | When `true`, the section toggled by the About button is already open when the collection home page loads. Only the boolean `true` opens it — the string `"true"` does not. |
 | `collectionBannerImg` | file name, or a URL starting with `https` | `"banner_default.png"` | Banner image — see [Styling and assets](styling.md). |
 
 ## Collection description
