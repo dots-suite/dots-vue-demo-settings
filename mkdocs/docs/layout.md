@@ -66,7 +66,7 @@ Neither implies the other, and both are optional:
 | `about1.vue`, `about2.vue`, … | the tabs of the About page | `aboutPageSettings[].compName` |
 | `HomePageContent.vue` | a free block on the collection home page | `homePageSettings.descriptionSection.customCollectionDescription.compName` |
 | `assets/css/<collection_id>.customCss.css` | a stylesheet for the documents of the collection — the file name is matched **case-sensitively** | `collectionCustomCss` |
-| `assets/images/` | banners, logos and thumbnails — any extension | the five settings below |
+| `assets/images/` | banners, logos and thumbnails — any extension | the six settings below |
 
 Every setting that names an image in that directory:
 
@@ -77,6 +77,7 @@ Every setting that names an image in that directory:
 | `homePageSettings.appNavBar.appNavBarLogo.imgName` | the left-hand logo of the navigation bar |
 | `homePageSettings.appNavBar.appNavBarApiLogo.imgName` | a second logo, on the right of the application navBar (your API endpoint) |
 | `metadataLogosMapping[].name` | a logo beside a metadata value, looked up as `logo_<name>.svg` or `.png` |
+| `footerSettings.footerLogos.<key>.imgName` | a partner logo in the footer |
 
 !!! note "The favicon is the exception"
     `homePageSettings.favicon` does **not** read from a collection directory: it is looked up in a

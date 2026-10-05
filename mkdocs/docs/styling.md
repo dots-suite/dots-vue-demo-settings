@@ -118,6 +118,7 @@ Any extension works. The settings below name a file in that directory:
 | `homePageSettings.listSection.logo` | the thumbnail of the collection in listings and cards |
 | `homePageSettings.appNavBar.appNavBarLogo.imgName` | the left-hand logo of the navigation bar |
 | `homePageSettings.appNavBar.appNavBarApiLogo.imgName` | a second logo, on the right of the application navBar (your API endpoint) |
+| `footerSettings.footerLogos.<key>.imgName` | a partner logo in the footer, see [the reference](reference.md#footer) |
 
 ### How a file is found
 

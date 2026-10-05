@@ -80,6 +80,19 @@ All under `footerSettings`.
 | `footerTitle` | string | `"Titre"` | Title at the bottom left. Empty falls back to the collection title. |
 | `footerSubtitles` | array of strings | `[]` | One line each, under the title. |
 | `footerDescription` | string | the DoTS-vue credit line | Text block in the right-hand column. Hidden when empty. |
+| `footerLogos` | `{ key: { imgName, href, alt } }` | `enc` and `biblissima` | Partner logos of the right-hand column, in the order of the keys. `null` in place of an entry removes that logo. |
+| `footerLogos.<key>.imgName` | file name, or a URL starting with `http` | — | Logo image. A file name is looked up in the current collection's `assets/images/`, then in `default/assets/images/`, then among the application's images whose name starts with `logo`. An entry whose image is not found is left out. |
+| `footerLogos.<key>.href` | URL | — | Where the logo links to, in a new tab. |
+| `footerLogos.<key>.alt` | string | `""` | Alternative text of the logo. |
+
+!!! note "Logos are keyed, so that a file can remove or change one"
+    `footerLogos` is an object rather than an array: it is merged key by key down
+    [the cascade](cascade.md), where an array would be replaced wholesale. A collection removes the
+    Biblissima logo inherited from the default with `"footerLogos": { "biblissima": null }`, changes
+    only its image with `"footerLogos": { "biblissima": { "imgName": "logo_biblissima.svg" } }`,
+    and adds a logo of its own under a new key. The key also names a CSS class, `<key>-logo`, set on
+    the image: every logo is 250 px wide by default, and `.footer .<key>-logo` in a stylesheet
+    resizes one.
 
 ## Table of contents
 
