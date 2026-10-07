@@ -63,6 +63,7 @@ All under `homePageSettings.listSection`.
 | `cardCollectionPerPage` | integer | `3` | Page size of the card and table pagination. |
 | `logo` | file name, URL, `.vue` component, or `""` | `"DotsLogo.vue"` | Thumbnail of the collection in listings and cards. The default is the application's own logo, a Vue component rather than an image file. Empty is an explicit opt-out. |
 | `browseButtonText` | string | `"Browse the collection"` | Label of the button opening a collection (toc tree). |
+| `singleResourceButtonText` | string | `"Open the document"` | When `displayMode` is `toc` and the collection holds a single document, the table of contents is replaced by a button that opens that document directly; this is its label. |
 | `openState` | boolean | `false` | When `true` and `displayMode` is `toc`, the first level of the tree is expanded on load. |
 | `displaySort` | array of identifiers | **no default** | Manual ordering: the identifiers listed come first, in that order; everything else follows alphabetically. Without it, ordering is alphabetical. |
 
@@ -113,6 +114,23 @@ All under `tableOfContentsSettings`.
     `displayTopToc`, `displayLeftToc` and `leftTocFragmentIsDocument` are enabled by **any** value
     other than the boolean `false` — including the string `"false"`. Write real booleans.
 
+## Breadcrumb
+
+| Key | Values | Default | Effect |
+|---|---|---|---|
+| `topBreadcrumbButtonLabel` | array of property paths | `["title"]` | How the label of a **document** button is built in the breadcrumb at the top of the document page. The values found are joined with `, `. Collection buttons always show the collection title. |
+
+!!! note "Property paths, not metadata terms"
+    Each entry is a dotted path into the document as the DTS endpoint describes it — `title`,
+    `dublinCore.creator`, `extensions.dots:shortTitle` — not a `prefix:term` of the
+    [metadata panel](#metadata-panel): `dct:creator` matches nothing. Paths that yield nothing are
+    skipped; in a list of values, such as several creators, each item's `name` is used.
+    `extensions.dots:shortTitle` falls back to `title` when the document has no short title.
+
+    With `["dublinCore.creator", "extensions.dots:shortTitle"]`, a document whose creator is
+    R. Anthony Lodge is labelled *R. Anthony Lodge, &lt;short title&gt;*. When no entry of the
+    collection's list yields a value, the list of `custom.conf.json` is tried, then the title.
+
 ## About page
 
 | Key | Values | Default | Effect |
@@ -136,7 +154,6 @@ All under `tableOfContentsSettings`.
 | `excludeMetadata.fields` | array of patterns | `[]` | Terms to drop among those not named explicitly — that is, what a wildcard collected, and the leftovers of the second pass. |
 | `excludeMetadata.alwaysExclude` | array of patterns | `["dts:citationTrees"]` | Terms to drop **even if** named in `metadataDisplayOrder`. Evaluated first. |
 | `metadataLogosMapping` | array of `{ name, ext, dynamic? }` | a set of repositories | Associates a URL fragment (`ext`) with a logo (`logo_<name>.svg`). `dynamic` accepts `"dots_api_base_url"` or `"dots_vue_self"`, computed at runtime. |
-| `topBreadcrumbButtonLabel` | array of property paths | `["title"]` | How the label of a resource button is built in the breadcrumb. Several values are joined with `, `. |
 
 !!! note "Wildcards have exactly one shape"
     `prefix:*` and nothing else. A partial pattern such as `dct:bibli*` is read as an ordinary term,

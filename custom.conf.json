@@ -21,7 +21,8 @@
       "listSection": {
         "displayMode": "card",
         "cardCollectionPerPage": 5,
-        "browseButtonText": "Browse the collection"
+        "browseButtonText": "Browse the collection",
+        "singleResourceButtonText": "Open the document"
       }
     },
     "footerSettings": {
