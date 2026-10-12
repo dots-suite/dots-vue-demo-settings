@@ -26,5 +26,10 @@
     { "tabName": "DoTS-Vue", "compName": "about3" },
     { "tabName": "Cookbook", "compName": "about4" }
   ],
-  "collectionCustomCss": "dots_cookbook"
+  "collectionCustomCss": "dots_cookbook",
+  "searchConfig": {
+    "facets": [
+      { "key": "resources", "enabled": false }
+    ]
+  }
 }
