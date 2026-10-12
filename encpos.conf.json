@@ -155,6 +155,10 @@
       {
         "key": "extensions.funder",
         "enabled": false
+      },
+      {
+        "key": "resources",
+        "enabled": false
       }
     ],
     "temporalFacets": [
